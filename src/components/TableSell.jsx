@@ -75,7 +75,6 @@ export const TableSell = () => {
 
     const handleDetail = async (id) => {
         const data = await getOneSell(id);
-        console.log(data);
         addToTempCart(data.client);
         setSell(data);
         navigate(`/admin/detailSell`);

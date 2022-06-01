@@ -34,7 +34,6 @@ const ProductForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(image)
     //Check Empty Fields
     if ([name, brand, size, cant, price, sucursal].includes('')) {
       swal('Error', 'Por favor llene todos los campos', 'error');
