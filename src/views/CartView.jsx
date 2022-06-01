@@ -11,7 +11,7 @@ const CartView = () => {
   const { auth } = useAuth();
   const { createSell } = useSells();
   const { serviceCart, setServiceCart, removeFromCart } = useServices();
-  const { clientCart,deleteFromCart } = useClients();
+  const { clientCart,deleteFromCart,setClientCart } = useClients();
 
   let totalRow = 0;
   let total = 0;
@@ -67,6 +67,7 @@ const CartView = () => {
     localStorage.setItem('gomeria_carrito_client', JSON.stringify({}));
     setCarrito([]);
     setServiceCart([]);
+    setClientCart({});
 
     createSell(sell);
   }
