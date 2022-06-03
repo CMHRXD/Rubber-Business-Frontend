@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import useSells from "../hooks/useSells";
 import useServices from "../hooks/useServices";
 import useClients from "../hooks/useClients";
+import { BsPrinterFill } from "react-icons/bs";
 
 const CartView = () => {
 
@@ -11,7 +12,7 @@ const CartView = () => {
   const { auth } = useAuth();
   const { createSell } = useSells();
   const { serviceCart, setServiceCart, removeFromCart } = useServices();
-  const { clientCart,deleteFromCart,setClientCart } = useClients();
+  const { clientCart, deleteFromCart, setClientCart } = useClients();
 
   let totalRow = 0;
   let total = 0;
@@ -71,12 +72,30 @@ const CartView = () => {
 
     createSell(sell);
   }
+
+  const handlePrint = () => {
+    const form = document.querySelector('.form');
+    const header = document.querySelector('.header');
+    form.classList.add('text-black');
+    header.style.display = 'none';
+    Promise.resolve(window.print())
+      .then(() => {
+        form.classList.remove('text-black');
+        header.style.display = 'flex';
+      }
+      )
+  }
+
   return (
+
 
     <div className='flex justify-center items-center'>
 
-      <div className='shadow-lg rounded-lg p-8 max-w-[900px] md:w-auto mt-5 border-2 border-gray-600 bg-gray-900 text-yellow-50 overflow-x-auto'>
-        <h1 className='text-xl text-center font-bold border-b-2 border-red-500'>Carrito de Compras</h1>
+      <div className='shadow-lg rounded-lg p-8 max-w-[900px] md:w-auto mt-5 border-2 border-gray-600 bg-gray-900 text-yellow-50 form overflow-x-auto'>
+        <div className="flex border-b-2 border-red-500 justify-between pb-4 ">
+          <h1 className='text-xl text-center font-bold '>Carrito de Compras</h1>
+          <BsPrinterFill className='text-2xl text-red-500' onClick={handlePrint} />
+        </div>
 
         {/*Client Information*/}
         <div className="flex justify-between mt-5">
@@ -171,8 +190,8 @@ const CartView = () => {
           </div>
           : null}
 
-        {clientCart._id? <button className='text-xl text-white border-2 border-yellow-500 p-2 w-full mt-3 rounded-md hover:bg-yellow-500 hover:border-yellow-500'
-          onClick={deleteFromCart}>Eliminar Cliente</button>: <p></p>}
+        {clientCart._id ? <button className='text-xl text-white border-2 border-yellow-500 p-2 w-full mt-3 rounded-md hover:bg-yellow-500 hover:border-yellow-500'
+          onClick={deleteFromCart}>Eliminar Cliente</button> : <p></p>}
 
       </div>
     </div>

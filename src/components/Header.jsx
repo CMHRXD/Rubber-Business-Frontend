@@ -32,7 +32,7 @@ const Header = () => {
   }
 
   return (
-    <div className='w-full h-[100px] bg-gray-900 flex justify-between items-center text-yellow-500 text-lg px-4'>
+    <div className='w-full h-[100px] bg-gray-900 flex justify-between items-center header text-yellow-500 text-lg px-4'>
       {/*Bussines Icon*/}
       <div className='flex justify-between items-center px-5'>
         <img src={icon} alt="Icon" style={{ width: '10%' }} />
