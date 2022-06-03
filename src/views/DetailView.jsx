@@ -4,7 +4,6 @@ import useSells from '../hooks/useSells';
 import useClients from '../hooks/useClients';
 import { BsPrinterFill } from "react-icons/bs";
 
-
 const DetailView = () => {
   const { sell } = useSells();
   const products = sell.products;
