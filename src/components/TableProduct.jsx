@@ -111,7 +111,7 @@ export const TableProduct = () => {
                             {page.map(row => {
                                 prepareRow(row)
                                 return (
-                                    <tr className="bg-gray-800 text-white border-gray-200 hover:bg-gray-700 " {...row.getRowProps()}>
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" {...row.getRowProps()}>
                                         {row.cells.map(cell => {
                                             if (cell.column.Header === 'Imagen') {
                                                     
