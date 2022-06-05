@@ -87,7 +87,7 @@ export const TableClient = () => {
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 "
             {...getTableProps()}
           >
-            <thead className=" text-sm text-white uppercase bg-gray-50 dark:bg-gray-900">
+            <thead className=" text-sm text-white uppercase bg-gray-800 border-gray-200 hover:bg-gray-700 ">
               {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map(column => (
@@ -103,7 +103,7 @@ export const TableClient = () => {
               {page.map(row => {
                 prepareRow(row)
                 return (
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" {...row.getRowProps()}>
+                  <tr className="bg-gray-800 border-gray-200 hover:bg-gray-700 " {...row.getRowProps()}>
                     {row.cells.map(cell => {
                       if (cell.column.Header === 'Opciones') {
                         return (
