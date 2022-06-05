@@ -87,7 +87,7 @@ export const TableClient = () => {
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 "
             {...getTableProps()}
           >
-            <thead className=" text-sm text-white uppercase bg-gray-800 border-gray-200 hover:bg-gray-700 ">
+            <thead className=" text-sm text-white uppercase bg-gray-700  border-gray-200 ">
               {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map(column => (
