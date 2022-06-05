@@ -137,7 +137,7 @@ export const TableSell = () => {
                             {page.map(row => {
                                 prepareRow(row)
                                 return (
-                                    <tr className="bg-gray-800 border-gray-200 hover:bg-gray-700 " {...row.getRowProps()}>
+                                    <tr className="bg-gray-800 text-white border-gray-200 hover:bg-gray-700 " {...row.getRowProps()}>
                                         {row.cells.map(cell => {
                                             if (cell.column.Header === 'Total') {
                                                 TotalSells = TotalSells + cell.value;
