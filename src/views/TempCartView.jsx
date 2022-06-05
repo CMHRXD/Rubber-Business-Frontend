@@ -108,7 +108,7 @@ const TempCartView = () => {
               return (
 
                 <tbody key={producto._id} className="">
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <tr className="border-b bg-gray-800 border-gray-200 hover:bg-gray-700 ">
                     <td className='p-3 text-sm md:text-lg'>{producto.name}</td>
                     <td className='p-3 text-sm md:text-lg'>
                       <input type="number" value={producto.cantToSell} className="w-10 bg-transparent border-gray-300 rounded-lg text-center border-2" onChange={e => setCantidad(producto._id, e.target.value)} />
@@ -147,7 +147,7 @@ const TempCartView = () => {
               return (
 
                 <tbody key={service._id} className="">
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <tr className="border-b bg-gray-800 border-gray-200 hover:bg-gray-700 ">
                     <td className='p-3 text-sm md:text-lg'>{service.name}</td>
                     <td className='p-3 text-sm md:text-lg'>
                       <input type="text" readOnly value={service.cantToSell} className="w-10 bg-transparent border-gray-300 rounded-lg text-center border-2" onChange={e => setCantidad(producto._id, e.target.value)} />

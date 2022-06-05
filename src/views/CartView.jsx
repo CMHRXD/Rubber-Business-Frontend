@@ -76,12 +76,16 @@ const CartView = () => {
   const handlePrint = () => {
     const form = document.querySelector('.form');
     const header = document.querySelector('.header');
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => btn.style.display = 'none');
     form.classList.add('text-black');
     header.style.display = 'none';
+    
     Promise.resolve(window.print())
       .then(() => {
         form.classList.remove('text-black');
         header.style.display = 'flex';
+        btns.forEach(btn => btn.style.display = 'block');
       }
       )
   }
@@ -180,17 +184,17 @@ const CartView = () => {
           }
         </table>
 
-        {carrito.length ?
+        {carrito.length ||  serviceCart.length?
           <div className="">
             <p className="text-lg mt-5 text-right"> <span className="font-bold">Total General:</span>  {total} Gs</p>
-            <button className='text-xl text-white border-2 border-yellow-500 p-2 w-full mt-10 rounded-md hover:bg-yellow-500 hover:border-yellow-500'
+            <button className='text-xl text-white border-2 border-yellow-500 p-2 w-full mt-10 btn rounded-md hover:bg-yellow-500 hover:border-yellow-500'
               onClick={handleSell}>
               Vender Productos
             </button>
           </div>
           : null}
 
-        {clientCart._id ? <button className='text-xl text-white border-2 border-yellow-500 p-2 w-full mt-3 rounded-md hover:bg-yellow-500 hover:border-yellow-500'
+        {clientCart._id ? <button className='text-xl text-white border-2 border-yellow-500 btn p-2 w-full mt-3 rounded-md hover:bg-yellow-500 hover:border-yellow-500'
           onClick={deleteFromCart}>Eliminar Cliente</button> : <p></p>}
 
       </div>

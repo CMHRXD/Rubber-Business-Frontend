@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes, FaProductHunt } from 'react-icons/fa';
-import {HiLogout, HiShoppingCart} from 'react-icons/hi'
-import {AiFillDollarCircle} from 'react-icons/ai'
-import {CgProfile} from 'react-icons/cg'
+import { FaBars, FaTimes, FaProductHunt, FaUsers } from 'react-icons/fa';
+import { HiLogout, HiShoppingCart } from 'react-icons/hi'
+import { AiFillDollarCircle } from 'react-icons/ai'
+import { CgProfile } from 'react-icons/cg'
+import { MdAdminPanelSettings } from 'react-icons/md'
+import { FcServices } from 'react-icons/fc';
 import icon from '../public/img/icon.jpg';
 
 import useAuth from '../hooks/useAuth';
@@ -17,10 +19,10 @@ const Header = () => {
 
   const [drop, setDrop] = useState(false)
 
-  const { logout,auth } = useAuth();
+  const { logout, auth } = useAuth();
   const { setSucursales } = useSucursal();
-  const { setSells} = useSells();
-  const { setProducts, setCarrito} = useProducts();
+  const { setSells } = useSells();
+  const { setProducts, setCarrito } = useProducts();
 
   const handleLogout = () => {
     localStorage.removeItem('gomeria_carrito');
@@ -47,19 +49,19 @@ const Header = () => {
         </li>
         <li><Link to='/admin/sells'><AiFillDollarCircle size={"25px"} className=" rounded-lg text-yellow-500  " /></Link></li>
         <li><Link to='/admin/profile'><CgProfile size={"25px"} className=" rounded-lg text-yellow-500  " /></Link></li>
-        
+
         <li onClick={handleLogout}><HiLogout size={"25px"} className=" rounded-lg text-yellow-500  " /></li>
       </ul>
 
-       {/*NavBar Desktop with No Icons*/}
-       <ul className='hidden md:flex'>
-         <li><Link to={'/admin/clients'}>Clientes</Link></li>
+      {/*NavBar Desktop with No Icons*/}
+      <ul className='hidden md:flex'>
+        <li><Link to={'/admin/clients'}>Clientes</Link></li>
         <li><Link to='/admin'>Productos</Link></li>
         <li><Link to='/admin/services'>Servicios</Link></li>
         <li><Link to='/admin/cart'>Carrito</Link></li>
         <li><Link to='/admin/sells'>Ventas</Link></li>
         <li><Link to='/admin/profile'>Perfil</Link></li>
-        {auth.rol == "ADMIN" ?<li><Link to='/admin/administration'>Admin</Link></li>:null}
+        {auth.rol == "ADMIN" ? <li><Link to='/admin/administration'>Admin</Link></li> : null}
         <li onClick={handleLogout}><HiLogout size={"25px"} className=" rounded-lg text-yellow-500  " /></li>
       </ul>
 
@@ -69,12 +71,73 @@ const Header = () => {
       </div>
 
       <ul className={navStatus ? 'absolute top-0 left-0 h-screen bg-gray-900 w-full flex flex-col items-center justify-center' : 'hidden'}>
-        <li className='py-6 text-4xl' onClick={() => setNavStatus(!navStatus)}><Link to='/admin'><FaProductHunt size={"50px"} className=" rounded-lg text-yellow-500  " /></Link></li>
-        <li className='py-6 text-4xl' onClick={() => setNavStatus(!navStatus)}><Link to='/admin/cart'><HiShoppingCart size={"50px"} className=" rounded-lg text-yellow-500  " /></Link></li>
-        <li className='py-6 text-4xl' onClick={() => setNavStatus(!navStatus)}><Link to='/admin/sells'><AiFillDollarCircle size={"50px"} className=" rounded-lg text-yellow-500  " /></Link></li>
-        <li className='py-6 text-4xl' onClick={() => setNavStatus(!navStatus)}><Link to='/admin/profile'><CgProfile size={"50px"} className=" rounded-lg text-yellow-500  " /></Link></li>
-        <li onClick={handleLogout}><HiLogout size={"50px"} className=" rounded-lg text-yellow-500  " /></li>
+        <li className='py-6 text-3xl' onClick={() => setNavStatus(!navStatus)}>
+          <Link to='/admin/clients'>
+            <p className='flex items-center'>
+              <FaUsers size={"50px"} className="rounded-lg text-yellow-500" />
+            </p>
+          </Link>
+        </li>
+        <li className='py-6 text-3xl' onClick={() => setNavStatus(!navStatus)}>
+          <Link to='/admin'>
+            <p className='flex items-center'>
+              <FaProductHunt size={"50px"} className=" rounded-lg text-yellow-500" />
+            
+            </p>
+          </Link>
+        </li>
+        <li className='py-6 text-3xl' onClick={() => setNavStatus(!navStatus)}>
+          <Link to='/admin/services'>
+            <p className='flex items-center'>
+              <FcServices size={"50px"} className=" rounded-lg text-yellow-500" />
+             
+            </p>
+          </Link>
+        </li>
+        <li className='py-6 text-3xl' onClick={() => setNavStatus(!navStatus)}>
+          <Link to='/admin/cart'>
+            <p className='flex items-center'>
+              <HiShoppingCart size={"50px"} className=" rounded-lg text-yellow-500  " />
+              
+            </p>
+          </Link>
+        </li>
+        <li className='py-6 text-3xl' onClick={() => setNavStatus(!navStatus)}>
+          <Link to='/admin/sells'>
+            <p className='flex items-center'>
+              <AiFillDollarCircle size={"50px"} className=" rounded-lg text-yellow-500  " />
+              
+            </p>
+          </Link>
+        </li>
+        <li className='py-6 text-3xl' onClick={() => setNavStatus(!navStatus)}>
+          <Link to='/admin/profile'>
+            <p className='flex items-center'>
+              <CgProfile size={"50px"} className=" rounded-lg text-yellow-500  " />
+              
+            </p>
+          </Link>
+        </li>
+        {auth.rol == "ADMIN" ?
+          <li className='py-6 text-3xl' onClick={() => setNavStatus(!navStatus)}>
+            <Link to='/admin/administration'>
+              <p className='flex items-center'>
+                <MdAdminPanelSettings size={"50px"} className=" rounded-lg text-yellow-500  " />
+                
+              </p>
+            </Link>
+          </li>
+          : null}
+
+        <li className='py-6 text-3xl' onClick={handleLogout}>
+          <p className='flex items-center'>
+            <HiLogout size={"50px"} className=" rounded-lg text-yellow-500  " />
+          </p>
+
+        </li>
+
       </ul>
+
 
     </div>
   )
