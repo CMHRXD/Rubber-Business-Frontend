@@ -1,5 +1,5 @@
 # Rubber-Business-Frontend
-# Project with MERN - TailwindCSS -React Tables - React-Router Dom - Context - Hooks - Frontend
+# Project developed with React - Node - TailwindCSS - React Tables - React-Router Dom - Context - Hooks  
 
 # Intructions for login with Demo Account:
 ## User: demo@demo.com
