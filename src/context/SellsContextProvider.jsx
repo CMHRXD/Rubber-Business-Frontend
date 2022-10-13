@@ -31,7 +31,8 @@ export const SellsContextProvider = ({ children }) => {
         };
         try {
             const { data } = await AxiosClient.get('ventas/get-ventas', config);
-            setSells(data);
+            if(data) setSells(data);
+            
         } catch (error) {
             console.log(error);
         }
