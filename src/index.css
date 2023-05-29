@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base{
-    body{
-        @apply font-mono
-    }
     li{
         @apply px-4;
         @apply cursor-pointer;
